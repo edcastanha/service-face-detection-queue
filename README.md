@@ -3,7 +3,9 @@ Consumers para tratamento de frames de CFTV para detectar faces e encaminhar par
 
 ## Do Objetivo:
 
-O objetivo, além de praticar a modelagem tática e pattern do DDD, vamos percorrer uma pasta (FTP), verificar se as subpastas seguem um padrão de nomenclatura AAAA-MM-DD (ano-mês-dia) e, em seguida, publicar mensagens em um sistema de mensagens (possivelmente um sistema de filas, como RabbitMQ).
+O objetivo, além de praticar a modelagem tática e pattern do DDD¹.
+
+Escopo - percorrer uma pasta FTP², verificar se as subpastas seguem um padrão de nomenclatura AAAA-MM-DD (ano-mês-dia) e, em seguida, publicar mensagens em um sistema de mensagens (possivelmente um sistema de filas, como RabbitMQ).
 Usaremos uma abordagem afim de praticar a analise de modelos para criação da aplicação mais proxima a uma produção.
 
 DESAFIOS:
@@ -24,3 +26,10 @@ DESAFIOS:
     Isso poderá ser isolado em um serviço separado.
 
 Essas são apenas algumas diretrizes gerais. Em essência, aplicar o DDD envolverá a identificação e a separação das preocupações do domínio específico (publicação de mensagens) e a criação de interfaces e abstrações que desacoplam a lógica do domínio da infraestrutura técnica.
+
+
+<< ------------------ >>
+Referencias: 
+1 - Domain-Driven Design: !A fazer!
+2 - FTP : !A fazer!
+3 - Mensageria: !A fazer!
