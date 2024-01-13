@@ -1,35 +1,28 @@
 # service-face-detection-queue
-Consumers para tratamento de frames de CFTV para detectar faces e encaminhar para fila de proximo tratamento.
 
-## Do Objetivo:
+## Objetivo:
 
-O objetivo, além de praticar a modelagem tática e pattern do DDD¹.
+O objetivo principal deste projeto é a prática da modelagem tática e padrões do Domain-Driven Design (DDD)¹. O escopo inclui a varredura de uma pasta FTP², verificação do padrão de nomenclatura AAAA-MM-DD (ano-mês-dia) nas subpastas e, em seguida, a publicação de mensagens em um sistema de filas, como RabbitMQ. A abordagem adotada visa aprimorar a análise de modelos para criar uma aplicação mais próxima das condições de produção.
 
-Escopo - percorrer uma pasta FTP², verificar se as subpastas seguem um padrão de nomenclatura AAAA-MM-DD (ano-mês-dia) e, em seguida, publicar mensagens em um sistema de mensagens (possivelmente um sistema de filas, como RabbitMQ).
-Usaremos uma abordagem afim de praticar a analise de modelos para criação da aplicação mais proxima a uma produção.
+### Desafios:
 
-DESAFIOS:
+1. Identificar e isolar a lógica:
+   - Isolar a lógica em uma classe ou módulo separado, dedicado exclusivamente à comunicação com o serviço de mensageria. Essa classe atuará como uma "porta" para o domínio de publicação de mensagens.
 
-* Identificar e isolar a lógica.
-    - Isolar essa lógica em uma classe ou módulo separado que lidará exclusivamente com a comunicação com o serviço de mensageria. 
-    - Essa classe será uma espécie de "porta" para o domínio de publicação de mensagens.
+2. Definir uma interface para comunicação:
+   - Criar uma interface que descreva os métodos necessários para interagir com o sistema de mensagens. Exemplo de métodos incluem publicação de mensagens, estabelecimento de conexões, entre outros.
 
-* Definir uma interface para essa comunicação: 
-    - Criar uma interface que descreva os métodos necessários para interagir com o sistema de mensagens. 
-    Por exemplo, métodos para publicar mensagens, estabelecer conexões, etc.
+3. Implementar a classe Publisher utilizando a interface:
+   - A classe Publisher deve utilizar essa interface para interagir com o serviço. Esse desacoplamento da lógica específica do serviço torna a classe mais genérica e independente da infraestrutura.
 
-* Implementar a classe Publisher usando essa interface: 
-    - A classe Publisher agora usaria essa interface para interagir com o serviço. Isso desacoplará a lógica específica do serviço da classe Publisher, tornando-a mais genérica e independente da infraestrutura.
+4. Tratar a formatação das mensagens como um serviço:
+   - Se houver lógica significativa para formatar as mensagens antes do envio para o serviço, essa tarefa pode ser isolada em um serviço separado.
 
-* Tratar a formatação das mensagens como um serviço: 
-    - Se houver lógica significativa para formatar as mensagens antes de enviá-las para o serviço.
-    Isso poderá ser isolado em um serviço separado.
-
-Essas são apenas algumas diretrizes gerais. Em essência, aplicar o DDD envolverá a identificação e a separação das preocupações do domínio específico (publicação de mensagens) e a criação de interfaces e abstrações que desacoplam a lógica do domínio da infraestrutura técnica.
-
+Essas diretrizes proporcionam uma visão geral do processo. Em essência, a aplicação do DDD envolve a identificação e separação das preocupações específicas do domínio (publicação de mensagens), além da criação de interfaces e abstrações que desacoplam a lógica do domínio da infraestrutura técnica.
 
 << ------------------ >>
-Referencias: 
-1 - Domain-Driven Design: !A fazer!
-2 - FTP : !A fazer!
-3 - Mensageria: !A fazer!
+
+### Referências:
+1. [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design)
+2. FTP (A fazer)
+3. Mensageria (A fazer)
